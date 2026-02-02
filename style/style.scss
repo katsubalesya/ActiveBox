@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Raleway", sans-serif;
+}
+@mixin font($fontSize, $lineHeight,$fontWeight:400){
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    font-weight: $fontWeight;
+}
+.container{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.banner{
+    max-width: 1510px;
+    background-image: url(../image/bannerFon.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 40px 0 120px;
+}
+.banner::before{
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(37, 43, 73, 0.8);
+}
+
+.header__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+    position: relative;
+    border-bottom: 1px solid #BABBC5;
+   
+}
+.header__logo-box{
+    max-width: 184px;
+    display: flex;
+    margin-bottom: 35px
+}
+.header__nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+.nav__link{
+    color: #fff;
+    @include font(13px,15px ,700 );
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.banner__container{
+    z-index: 1;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+.banner__title{
+    @include font(64px, 75px, 900 );
+    text-transform: uppercase;
+    margin-bottom: 31px ;
+    margin-top: 42px;
+    position: relative;
+}
+/*.banner__title::before{
+    content: " ";
+    display: block;
+    max-width: 1510px;
+    border: 1px solid #BABBC5;
+   position: absolute;
+    left: 0;
+    margin-bottom: 128px;}*/
+.banner__text{
+    @include font(24px, 28px);
+    margin-bottom: 80px;
+}
+.button{
+    width: 100%;
+    max-width: 370px;
+    background-color: #FF4343;
+    @include font(24px, 28px, 900 );
+    color: #fff;
+    text-transform: uppercase;
+    padding: 24px;
+    margin-bottom: 120px;
+}
+
+@media (max-width:1024px){
+.container{
+    max-width: 984px;
+}
+.header__nav{
+    gap: 25px;
+}
+.nav__link{
+    @include font(12px,14px ,700 );
+}
+.banner__title{
+    @include font(48px, 56px, 900 );
+    margin-bottom: 62px ;
+}
+.banner__text{
+    @include font(18px, 21px);
+    margin-bottom: 89px;
+}
+.button{
+    max-width: 314px;
+    margin-bottom: 126px;
+}
+}
+
+@media (max-width:320px){
+.container{
+    max-width: 280px;
+}
+.header__container{
+    border-bottom: none;
+}
+.header__logo-box{
+    max-width: 103px;
+}
+.banner__title{
+    @include font(36px, 42px, 900 );
+    margin-bottom: 41px ;
+}
+.banner__text{
+    @include font(14px, 16px);
+    margin-bottom: 59px;
+}
+.button{
+    max-width: 279px;
+    padding: 15px;
+    margin-bottom: 52px;
+}
+}
