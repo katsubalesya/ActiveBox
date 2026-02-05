@@ -193,6 +193,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
   }
   @media (max-width: 1024px) {
     max-width: 85px;
@@ -261,7 +262,7 @@ body {
   }
   &__name {
     @include font(24px, 28px, 900);
-    color: $color-text;
+    color: $text-color;
     text-transform: uppercase;
     margin-bottom: 37px;
   }
