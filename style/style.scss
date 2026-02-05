@@ -1,14 +1,14 @@
 $main-font: "Raleway", sans-serif;
 $background-banner: rgba(37, 43, 73, 0.8);
 $border-bottom-banner: 1px solid #babbc5;
-$color-text: #fff;
+$text-color: #fff;
 $bottom-background-color: #ff4343;
 $bottom-background-hover: #e71414;
-$color-link-hover: #babbc5;
-$color-link-active: #e71414;
-$color-feature-title: #2d3033;
-$color-feature-text: #6c7279;
-$project-content-active: #b90c0c;
+$link-color-hover: #babbc5;
+$link-color-active: #e71414;
+$title-color-feature: #2d3033;
+$text-color-feature: #6c7279;
+$content-project-active: #b90c0c;
 
 @mixin font($fontSize, $lineHeight, $fontWeight: 400) {
   font-size: $fontSize;
@@ -38,6 +38,11 @@ body {
   border-bottom: $border-bottom-banner;
   padding: 38px 0 36px;
 
+@media (max-width: 767px) {
+    border-bottom: none;
+    padding: 19px 0;
+  }
+
   &__container {
     display: flex;
     align-items: center;
@@ -46,26 +51,45 @@ body {
   &__logo {
     max-width: 184px;
     display: flex;
-    margin-bottom: 35px;
+  }
+  @media (max-width: 767px) {
+    display: flex;
+    max-width: 103px;
   }
   &__nav {
     display: flex;
-    justify-content: space-between;
     gap: 40px;
   }
+  @media (max-width: 1024px) {
+    gap: 25px;
+  }
 }
-.nav__link {
+
+.nav{
+  @media (max-width: 767px) {
+    display: none;
+  }
+
+&__link {
   color: #fff;
   @include font(13px, 15px, 700);
   text-transform: uppercase;
   text-decoration: none;
+
+  @media (max-width: 1024px) {
+    @include font(12px, 14px, 700);
+  }
+
+  &:hover {
+  color: $link-color-hover;
 }
-.nav__link:hover {
-  color: $color-link-hover;
+
+&:active {
+  color: $link-color-active;
 }
-.nav__link:active {
-  color: $color-link-active;
 }
+}
+
 .banner {
   background-image: url(../image/bannerFon.webp);
   background-repeat: no-repeat;
@@ -74,6 +98,9 @@ body {
   position: relative;
   padding: 223px 0 120px; /*захватывает не то расстояние*/
 
+  @media (max-width: 767px) {
+    padding: 106px 0 52px;
+  }
   &::before {
     content: " ";
     display: block;
@@ -94,12 +121,26 @@ body {
     @include font(64px, 75px, 900);
     text-transform: uppercase;
     margin-bottom: 31px;
-    margin-top: 42px;
-    position: relative;
+  }
+    @media (max-width: 1024px) {
+    @include font(48px, 56px, 900);
+    margin-bottom: 62px;
+  }
+  @media (max-width: 767px) {
+    @include font(36px, 42px, 900);
+    margin-bottom: 41px;
   }
   &__text {
     @include font(24px, 28px);
     margin-bottom: 80px;
+  }
+ @media (max-width: 1024px) {
+    @include font(18px, 21px);
+    margin-bottom: 89px;
+  } 
+  @media (max-width: 767px) {
+    @include font(14px, 16px);
+    margin-bottom: 59px;
   }
 }
 .button {
@@ -107,62 +148,21 @@ body {
   max-width: 370px;
   background-color: $bottom-background-color;
   @include font(24px, 28px, 900);
-  color: $color-text;
+  color: $text-color;
   text-transform: uppercase;
   padding: 24px;
-}
-.button:hover {
+  border: none;
+
+  &:hover {
   background-color: $bottom-background-hover;
 }
-.button:active {
+  &:active {
   box-shadow: 4px 4px 30px #ff4343;
 }
-
 @media (max-width: 1024px) {
-  .header__nav {
-    gap: 25px;
-  }
-  .nav__link {
-    @include font(12px, 14px, 700);
-  }
-  .banner__title {
-    @include font(48px, 56px, 900);
-    margin-bottom: 62px;
-  }
-  .banner__text {
-    @include font(18px, 21px);
-    margin-bottom: 89px;
-  }
-  .button {
     max-width: 314px;
   }
-}
-
 @media (max-width: 767px) {
-  .header {
-    border-bottom: none;
-    padding: 19px 0;
-  }
-
-  .header__logo {
-    display: flex;
-    max-width: 103px;
-  }
-  .header__nav {
-    display: none;
-  }
-  .banner {
-    padding: 106px 0 52px;
-  }
-  .banner__title {
-    @include font(36px, 42px, 900);
-    margin-bottom: 41px;
-  }
-  .banner__text {
-    @include font(14px, 16px);
-    margin-bottom: 59px;
-  }
-  .button {
     max-width: 279px;
     padding: 15px;
     margin-bottom: 52px;
@@ -170,64 +170,69 @@ body {
 }
 /*------------FEATURE--------------------*/
 .features {
+  padding: 109px 0 116px;
+
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    column-gap: 31px;
+    row-gap: 88px;
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
   }
 }
+
 .feature {
-  &__wrapper {
-    align-items: center;
     text-align: center;
-  }
+
   &__icon-wrapper {
     margin-bottom: 51px;
-  }
-  &__icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    max-width: 85px;
   }
   &__title {
     @include font(24px, 28px, 900);
-    color: $color-feature-title;
+    color: $title-color-feature;
     margin-bottom: 42px;
     text-transform: uppercase;
   }
-  &__text {
-    @include font(18px, 21px);
-    color: $color-feature-text;
-    margin-bottom: 0px;
-  }
-}
-@media (max-width: 1024px) {
-  .feature__icon-wrapper {
-    max-width: 85px;
-  }
-  .feature__title {
+  @media (max-width: 1024px) {
     @include font(18px, 21px, 900);
   }
-  .feature__text {
+  &__text {
+    @include font(18px, 21px);
+    color: $text-color-feature;
+  }
+  @media (max-width: 1024px) {
     @include font(14px, 16px);
   }
 }
 
-@media (max-width: 767px) {
-  .features__container {
-    grid-template-columns: 1fr;
-  }
-}
 /*------------PROJECTS--------------------*/
 .projects {
   &__container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    max-width: 1510px;
+    padding: 0;
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .project {
   aspect-ratio: 380/340;
   overflow: hidden;
   position: relative;
-
+  border: 2px solid #ffffff;
+  
   &__img {
     width: 100%;
     height: 100%;
@@ -240,8 +245,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(255, 67, 67, 0.8);
-    border: 2px solid #ffffff;
-    padding: 1px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -252,7 +256,7 @@ body {
     }
     &:active {
       opacity: 1;
-      background-color: $project-content-active;
+      background-color: $content-project-active;
     }
   }
   &__name {
@@ -261,27 +265,20 @@ body {
     text-transform: uppercase;
     margin-bottom: 37px;
   }
-  &__text {
-    @include font(18px, 21px);
-    color: $color-text;
-  }
-}
-@media (max-width: 1024px) {
-  .project {
-    &__name {
+  @media (max-width: 1024px) {
       @include font(18px, 21px, 900);
       margin-bottom: 22px;
     }
-    &__text {
-      @include font(14px, 16px);
-    }
-  }
-}
-@media (max-width: 767px) {
-  .projects__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .project__name {
+  @media (max-width: 767px) {
     margin-bottom: 7px;
   }
+  &__text {
+    @include font(18px, 21px);
+    color: $text-color;
+  }
+  @media (max-width: 1024px) {
+      @include font(14px, 16px);
+    }
 }
+
+
