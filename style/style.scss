@@ -51,18 +51,20 @@ body {
   &__logo {
     max-width: 184px;
     display: flex;
-  }
+  
   @media (max-width: 767px) {
     display: flex;
     max-width: 103px;
   }
+}
   &__nav {
     display: flex;
     gap: 40px;
-  }
+  
   @media (max-width: 1024px) {
     gap: 25px;
   }
+}
 }
 
 .nav{
@@ -121,7 +123,7 @@ body {
     @include font(64px, 75px, 900);
     text-transform: uppercase;
     margin-bottom: 31px;
-  }
+  
     @media (max-width: 1024px) {
     @include font(48px, 56px, 900);
     margin-bottom: 62px;
@@ -130,10 +132,11 @@ body {
     @include font(36px, 42px, 900);
     margin-bottom: 41px;
   }
+  }
   &__text {
     @include font(24px, 28px);
     margin-bottom: 80px;
-  }
+  
  @media (max-width: 1024px) {
     @include font(18px, 21px);
     margin-bottom: 89px;
@@ -143,6 +146,8 @@ body {
     margin-bottom: 59px;
   }
 }
+}
+
 .button {
   width: 100%;
   max-width: 370px;
@@ -177,10 +182,11 @@ body {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 31px;
     row-gap: 88px;
-  }
-  @media (max-width: 767px) {
+
+    @media (max-width: 767px) {
     grid-template-columns: 1fr;
   }
+}
 }
 
 .feature {
@@ -194,26 +200,29 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-  }
-  @media (max-width: 1024px) {
+
+    @media (max-width: 1024px) {
     max-width: 85px;
   }
+}
   &__title {
     @include font(24px, 28px, 900);
     color: $title-color-feature;
     margin-bottom: 42px;
     text-transform: uppercase;
-  }
+
   @media (max-width: 1024px) {
     @include font(18px, 21px, 900);
   }
+}
   &__text {
     @include font(18px, 21px);
     color: $text-color-feature;
-  }
+  
   @media (max-width: 1024px) {
     @include font(14px, 16px);
   }
+}
 }
 
 /*------------PROJECTS--------------------*/
@@ -223,11 +232,13 @@ body {
     grid-template-columns: repeat(4, 1fr);
     max-width: 1510px;
     padding: 0;
-  }
+  
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+}
+
 .project {
   aspect-ratio: 380/340;
   overflow: hidden;
@@ -265,7 +276,7 @@ body {
     color: $text-color;
     text-transform: uppercase;
     margin-bottom: 37px;
-  }
+  
   @media (max-width: 1024px) {
       @include font(18px, 21px, 900);
       margin-bottom: 22px;
@@ -273,13 +284,16 @@ body {
   @media (max-width: 767px) {
     margin-bottom: 7px;
   }
+}
+
   &__text {
     @include font(18px, 21px);
     color: $text-color;
-  }
+  
   @media (max-width: 1024px) {
       @include font(14px, 16px);
     }
+}
 }
 
 
