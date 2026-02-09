@@ -10,6 +10,18 @@ $title-color-feature: #2d3033;
 $text-color-feature: #6c7279;
 $content-project-active: #b90c0c;
 
+$name-color-employee: #2d3033;
+$posicion-color-employee: #ff4343;
+$text-color-employee: #6c7279;
+
+$background-color-goals: #7e5d6f;
+
+$font-goals: "Cardo", serif;
+
+$background-footer: #353c65;
+$background-footer-end: #2c3154;
+$text-color-footer-end: #808080;
+
 @mixin font($fontSize, $lineHeight, $fontWeight: 400) {
   font-size: $fontSize;
   line-height: $lineHeight;
@@ -27,7 +39,7 @@ body {
 .container {
   max-width: 1170px;
   margin: 0 auto;
-  padding: 0 20px;
+ padding: 0 20px;
 }
 
 .header {
@@ -38,7 +50,7 @@ body {
   border-bottom: $border-bottom-banner;
   padding: 38px 0 36px;
 
-@media (max-width: 767px) {
+  @media (max-width: 767px) {
     border-bottom: none;
     padding: 19px 0;
   }
@@ -51,45 +63,56 @@ body {
   &__logo {
     max-width: 184px;
     display: flex;
-  
-  @media (max-width: 767px) {
-    display: flex;
-    max-width: 103px;
+
+    @media (max-width: 767px) {
+      display: flex;
+      max-width: 103px;
+    }
   }
-}
   &__nav {
     display: flex;
-    gap: 40px;
-  
-  @media (max-width: 1024px) {
-    gap: 25px;
+    gap: 42px;
+
+    @media (max-width: 1024px) {
+      gap: 25px;
+    }
+  }
+  &__toggle {
+    display: none;
+
+    @media (max-width: 767px) {
+      display: flex;
+      border: none;
+      background: transparent;
+      width: 24px;
+      height: 18px;
+    }
   }
 }
-}
 
-.nav{
+.nav {
   @media (max-width: 767px) {
     display: none;
   }
 
-&__link {
-  color: #fff;
-  @include font(13px, 15px, 700);
-  text-transform: uppercase;
-  text-decoration: none;
+  &__link {
+    color: #fff;
+    @include font(13px, 15px, 700);
+    text-transform: uppercase;
+    text-decoration: none;
 
-  @media (max-width: 1024px) {
-    @include font(12px, 14px, 700);
+    @media (max-width: 1024px) {
+      @include font(12px, 14px, 700);
+    }
+
+    &:hover {
+      color: $link-color-hover;
+    }
+
+    &:active {
+      color: $link-color-active;
+    }
   }
-
-  &:hover {
-  color: $link-color-hover;
-}
-
-&:active {
-  color: $link-color-active;
-}
-}
 }
 
 .banner {
@@ -98,7 +121,11 @@ body {
   background-position: center;
   background-size: cover;
   position: relative;
-  padding: 223px 0 120px; /*захватывает не то расстояние*/
+  padding: 232px 0 120px; /*захватывает не то расстояние*/
+
+	 @media (max-width: 1024px) {
+    padding: 257px 0 126px;
+  }
 
   @media (max-width: 767px) {
     padding: 106px 0 52px;
@@ -123,77 +150,92 @@ body {
     @include font(64px, 75px, 900);
     text-transform: uppercase;
     margin-bottom: 31px;
-  
+
     @media (max-width: 1024px) {
-    @include font(48px, 56px, 900);
-    margin-bottom: 62px;
-  }
-  @media (max-width: 767px) {
-    @include font(36px, 42px, 900);
-    margin-bottom: 41px;
-  }
+      @include font(48px, 56px, 900);
+      margin-bottom: 62px;
+    }
+    @media (max-width: 767px) {
+      @include font(36px, 42px, 900);
+      margin-bottom: 41px;
+    }
   }
   &__text {
     @include font(24px, 28px);
     margin-bottom: 80px;
-  
- @media (max-width: 1024px) {
-    @include font(18px, 21px);
-    margin-bottom: 89px;
-  } 
-  @media (max-width: 767px) {
-    @include font(14px, 16px);
-    margin-bottom: 59px;
+
+    @media (max-width: 1024px) {
+      @include font(18px, 21px);
+      margin-bottom: 91px;
+    }
+    @media (max-width: 767px) {
+      @include font(14px, 16px);
+      margin-bottom: 59px;
+    }
   }
-}
 }
 
 .button {
   width: 100%;
   max-width: 370px;
   background-color: $bottom-background-color;
-  @include font(24px, 28px, 900);
+  @include font(22px, 28px, 900);
   color: $text-color;
   text-transform: uppercase;
   padding: 24px;
   border: none;
 
   &:hover {
-  background-color: $bottom-background-hover;
-}
-  &:active {
-  box-shadow: 4px 4px 30px #ff4343;
-}
-@media (max-width: 1024px) {
-    max-width: 314px;
+    background-color: $bottom-background-hover;
   }
-@media (max-width: 767px) {
+  &:active {
+    box-shadow: 4px 4px 30px #ff4343;
+  }
+  @media (max-width: 1024px) {
+    max-width: 314px;
+		@include font(18px, 21px, 900);
+		padding: 27px 0 29px;
+  }
+  @media (max-width: 767px) {
+		@include font(18px, 21px, 900);
     max-width: 279px;
-    padding: 15px;
-    margin-bottom: 52px;
+    padding: 27px 0 29px;
   }
 }
 /*------------FEATURE--------------------*/
 .features {
-  padding: 109px 0 116px;
+  padding: 79px 0 82px;
+
+	 @media (max-width: 1024px) {
+		padding: 79px 0 84px;
+    }
+
+		 @media (max-width: 767px) {
+		padding: 40px 0 35px;
+    }
 
   &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 31px;
-    row-gap: 88px;
+    row-gap: 83px;
+
+		 @media (max-width: 1024px) {
+			row-gap: 44px;
+    }
 
     @media (max-width: 767px) {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
+			gap: 41px;
+    }
   }
-}
 }
 
 .feature {
-    text-align: center;
+  text-align: center;
 
   &__icon-wrapper {
-    margin-bottom: 51px;
+    /*margin-bottom: 51px;  - не работает с грид*/
     width: 100px;
     height: 100px;
     display: flex;
@@ -202,27 +244,36 @@ body {
     margin: 0 auto;
 
     @media (max-width: 1024px) {
-    max-width: 85px;
+      max-width: 85px;
+			max-height: 85px;
+    }
+
+		@media (max-width: 767px) {
+      max-width: 76px;
+			max-height: 76px;
+    }
   }
-}
   &__title {
     @include font(24px, 28px, 900);
     color: $title-color-feature;
-    margin-bottom: 42px;
+		margin-top: 58px;
+    margin-bottom: 24px;
     text-transform: uppercase;
 
-  @media (max-width: 1024px) {
-    @include font(18px, 21px, 900);
+    @media (max-width: 1024px) {
+      @include font(18px, 21px, 900);
+			margin-top: 30px;
+    }
   }
-}
   &__text {
     @include font(18px, 21px);
     color: $text-color-feature;
-  
-  @media (max-width: 1024px) {
-    @include font(14px, 16px);
+
+    @media (max-width: 1024px) {
+      @include font(14px, 16px);
+			 margin-bottom: px;
+    }
   }
-}
 }
 
 /*------------PROJECTS--------------------*/
@@ -232,11 +283,11 @@ body {
     grid-template-columns: repeat(4, 1fr);
     max-width: 1510px;
     padding: 0;
-  
-  @media (max-width: 767px) {
-    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-}
 }
 
 .project {
@@ -244,7 +295,7 @@ body {
   overflow: hidden;
   position: relative;
   border: 2px solid #ffffff;
-  
+
   &__img {
     width: 100%;
     height: 100%;
@@ -276,24 +327,347 @@ body {
     color: $text-color;
     text-transform: uppercase;
     margin-bottom: 37px;
-  
-  @media (max-width: 1024px) {
+
+    @media (max-width: 1024px) {
       @include font(18px, 21px, 900);
       margin-bottom: 22px;
     }
-  @media (max-width: 767px) {
-    margin-bottom: 7px;
+    @media (max-width: 767px) {
+      margin-bottom: 7px;
+    }
   }
-}
 
   &__text {
     @include font(18px, 21px);
     color: $text-color;
-  
-  @media (max-width: 1024px) {
+
+    @media (max-width: 1024px) {
       @include font(14px, 16px);
     }
+  }
+}
+/*------------TEAM--------------------*/
+.team {
+  padding: 114px 0;
+
+	@media (max-width: 1024px) {
+    padding: 81px 0;
+    }
+
+		@media (max-width: 767px) {
+    padding: 35px 0 41px;
+    }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+
+		 @media (max-width: 1024px) {
+      column-gap: 25px;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.employee {
+  &__photo {
+    margin-bottom: 30px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    overflow: hidden;
+    width: 100%;
+    object-position: top;
+
+    @media (max-width: 1024px) {
+      aspect-ratio: 227 / 227;
+			margin-bottom: 24px;
+    }
+    @media (max-width: 767px) {
+      aspect-ratio: 280 / 227;
+			margin-bottom: 25px;
+			object-position: center;
+    }
+  }
+
+  &__name {
+    @include font(24px, 28px, 700);
+    color: $name-color-employee;
+		margin-top: -1px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+
+    @media (max-width: 1024px) {
+      @include font(18px, 21px, 700);
+    }
+  }
+  &__position {
+    @include font(18px, 21px);
+    color: $posicion-color-employee;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      @include font(14px, 16px);
+			margin-bottom: 22px;
+    }
+  }
+
+  &__text {
+    @include font(18px, 21px);
+    color: $text-color-employee;
+    margin-bottom: 38px;
+
+    @media (max-width: 1024px) {
+      @include font(14px, 16px);
+    }
+  }
+  &__social {
+    display: flex;
+    gap: 6px;
+  }
+}
+.social__link {
+  width: 39px;
+  height: 39px;
+  border: 1px solid #c6cbcd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+	 @media (max-width: 1024px) {
+  width: 33px;
+  height: 33px;
+	column-gap: 5px;
+    }
+}
+/*--------------GOALS----------------*/
+.goals {
+  max-width: 1510px;
+  padding: 0;
+  background-color: $background-color-goals;
+  margin: 0 auto;
+
+	@media (max-width: 1024px) {
+  max-width: 1024px;
+  }
+
+	@media (max-width: 767px) {
+  flex-direction: column;
+	align-items: center;
+	gap: 25px;
+    }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+		align-items: center;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+.goal {
+  column-gap: 31px;
+
+	&__wrapper-photo{
+
+	}
+
+  &__photo {
+
+@media (max-width: 1024px) {
+      aspect-ratio: 482 / 332;
+		width: 100%;
+}
+
+	/*	@media (max-width: 767px) {
+      aspect-ratio: 280 / 218;
+			overflow: hidden;
+    }*/
+  
+  &__quote {
+    color: $text-color;
+
+@media (max-width: 1024px) {
+  color: $text-color;
+}
+
+  }
 }
 }
 
+.quote {
+	
+  &__text {
+    /*font: $font-goals;*/
+    font-family: "Cardo", serif;
+    @include font(36px, 49px);
+    font-style: italic;
+    text-transform: capitalize;
+    margin-bottom: 65px;        /*уточнить*/
+		align-items: center;color: $text-color;
+		
+		    @media (max-width: 1024px) {
+      @include font(24px, 32px);
+	    }
 
+			@media (max-width: 767px) {
+      margin-bottom: 15px;
+	    }
+  }
+
+  &__autor {
+    @include font(13px, 15px, 700);
+    text-transform: uppercase;
+		color: $text-color;
+
+    @media (max-width: 1024px) {
+      @include font(12px, 14px, 700);
+    }
+
+		@media (max-width: 767px) {
+      margin-bottom: 95px;
+	    }
+  }
+}
+/*--------------DOWNLOAD---------------*/
+.download {
+  &__container {
+    padding: 174px 0 114px;   /*уточнить*/
+    text-align: center;
+
+    @media (max-width: 1024px) {
+      padding: 115px 0 78px;
+    }
+  }
+
+  &__title {
+    @include font(30px, 35px, 500);
+    margin-bottom: 22px;
+
+    @media (max-width: 1024px) {
+      @include font(24px, 28px, 500);
+      margin-bottom: 20px;
+    }
+
+		@media (max-width: 767px) {
+      margin-bottom: 11px;
+    }
+  }
+
+  &__text {
+    @include font(18px, 21px, 700);
+    margin-bottom: 50px;
+
+    @media (max-width: 1024px) {
+      @include font(14px, 16px, 700);
+      margin-bottom: 46px;
+			text-transform: uppercase; ;
+    }
+
+		@media (max-width: 767px) {
+      margin-bottom: 13px;
+    }
+  }
+}
+/*-------------FOOTER---------------*/
+.footer {
+  max-width: 1510px;
+  background-color: $background-footer;
+  margin: 0 auto;
+	max-height: 340px;
+
+  @media (max-width: 1024px) {
+    max-width: 1024px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 71px;
+    color: $text-color;
+    text-align: center;
+
+    @media (max-width: 1024px) {
+      gap: 20px;
+      padding: 41px 0 47px;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__final {
+    background-color: $background-footer-end;
+    padding: 24px;
+
+    @media (max-width: 1024px) {
+      padding: 14px;
+    }
+  }
+
+  .info {
+
+    &__title {
+      @include font(18px, 21px, 700);
+      text-transform: uppercase;
+      margin-bottom: 29px;
+
+      @media (max-width: 1024px) {
+        @include font(14px, 16px, 700);
+      }
+    }
+
+    &__text {
+      @include font(18px, 21px);
+
+      @media (max-width: 1024px) {
+        @include font(14px, 16px);
+      }
+    }
+
+    &__social {
+      display: flex;
+      margin-top: 49px;
+      gap: 27px;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: 1024px) {
+        margin-top: 32px;
+        gap: 23px;
+      }
+    }
+  }
+}
+
+.final {
+  &__container {
+    max-width: 400px;
+    margin: 0 auto;
+		padding: 14px 0;
+  }
+
+  &__text {
+    @include font(18px, 21px);
+    color: $text-color-footer-end;
+    text-transform: capitalize;
+    max-width: 370px;
+    text-align: center;
+
+    @media (max-width: 1024px) {
+      @include font(14px, 16px);
+      max-width: 314px;
+    }
+  }
+
+  &__text-accent {
+    color: $text-color;
+  }
+}
